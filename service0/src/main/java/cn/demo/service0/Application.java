@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,9 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 @RestController
 public class Application {
+	
+	@GetMapping("/info")
+	public @ResponseBody String info(){
+		return "APIService";
+	}
 
     @GetMapping("/test")
-    public String service0() {
+    public @ResponseBody String service0() {
         return "service0";
     }
 
